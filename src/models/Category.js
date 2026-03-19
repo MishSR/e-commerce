@@ -1,7 +1,8 @@
 import mongoose from "mongoose";
+import Category from "./Category.js";
 
 const categorySchema = new mongoose.Schema ({
-    name: String,
+    name:{  String,
     required: true,
     trim: true 
     },
@@ -16,11 +17,13 @@ const categorySchema = new mongoose.Schema ({
         required: true,
         default: "http://placehold.co/800x600.png"
     },
-    parentCategory:{
+    parentCategory: {
         type:mongoose.Schema.Types.ObjectId,
         ref: "Category",
         default: null
-    }
+    },
+},
+{timestamps: true}
 );
 
 const Category = mongoose.model("Category", categorySchema);

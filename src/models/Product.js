@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import Category from "./Category.js";
 
 const productSchema = new mongoose.Schema ({
     name: {
@@ -23,7 +24,9 @@ const productSchema = new mongoose.Schema ({
     },
     category: {
         type: mongoose.Schema.Types.ObjectID, ref:"Category"},
-        {timestamps:true});
+ },
+     {timestamps:true}
+    );
 
         const Product = mongoose.model("Product", productSchema);
 
